@@ -1,20 +1,18 @@
-import Link from "next/link";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import "./globals.css";
+import { orbitron, exo2 } from "@/app/fonts";
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={`${orbitron.variable} ${exo2.variable}`}>
+      <body className="bg-orange-50 flex flex-col px-4 py-2 min-h-screen">
         <header>
           <Navbar />
         </header>
-        <main>{children}</main>
-        <footer>
-          Game data and images courtesy of{" "}
-          <Link href="https://rawg.io/" target="_blank">
-            RAWG
-          </Link>
+        <main className="grow py-3">{children}</main>
+        <footer className="border-t py-3 text-center text-xs text-slate-500">
+          <Footer />
         </footer>
       </body>
     </html>

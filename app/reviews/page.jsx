@@ -1,10 +1,10 @@
-import ReviewsList from "../components/reviews-list";
+import Heading from "../components/Heading";
+import ReviewsList from "../components/Reviews-list";
 
-const ReviewsPage = () => {
+const ReviewsPage = async () => {
   return (
     <>
-      <h1>Reviews</h1>
-      <p>Here we'll list all the reviews</p>
+      <Heading>Reviews</Heading>
       <ReviewsList />
     </>
   );

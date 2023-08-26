@@ -1,17 +1,14 @@
-import Link from "next/link";
+import Review from "./Review";
+import { getReviews } from "@/lib/reviews";
 
-const ReviewsList = () => {
-  const reviews = [
-    { id: "hollow-knight", label: "Hollow-Knight" },
-    { id: "stardew-valley", label: "Stardew-Valley" },
-  ];
+const ReviewsList = async () => {
+  const reviews = await getReviews();
+  //console.log(reviews);
 
   return (
-    <ul>
-      {reviews.map((item) => (
-        <li key={item.id}>
-          <Link href={`/reviews/${item.id}`}>{item.label}</Link>
-        </li>
+    <ul className="flex flex-row flex-wrap gap-3 mt-2">
+      {reviews.map((review) => (
+        <Review key={review.slug} review={review} />
       ))}
     </ul>
   );
