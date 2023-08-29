@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const Review = ({ review }) => {
   const { slug, title, image } = review;
+  //console.log(review);
 
   return (
     <li className="bg-white border rounded shadow hover:shadow-xl w-80 transition-shadow font-semibold font-orbitron">

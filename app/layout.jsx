@@ -3,6 +3,14 @@ import Footer from "./components/Footer";
 import "./globals.css";
 import { orbitron, exo2 } from "@/app/fonts";
 
+export const metadata = {
+  title: {
+    default: "Indie Gamer",
+    template: "%s | Indie Gamer",
+  },
+  description: "Only the best indie games, reviewed for you",
+};
+
 const RootLayout = ({ children }) => {
   return (
     <html lang="en" className={`${orbitron.variable} ${exo2.variable}`}>

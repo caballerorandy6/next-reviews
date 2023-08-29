@@ -1,5 +1,17 @@
-import { getReview } from "@/lib/reviews";
 import Heading from "../../components/Heading";
+import { getReview, getSlugs } from "@/lib/reviews";
+
+export async function generateStaticParams() {
+  const slugs = await getSlugs();
+  return slugs?.map((slug) => ({ slug }));
+}
+
+export const generateMetadata = async ({ params: { slug } }) => {
+  const review = await getReview(slug);
+  return {
+    title: review.title,
+  };
+};
 
 const ReviewPage = async ({ params: { slug } }) => {
   const review = await getReview(slug);
