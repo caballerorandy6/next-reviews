@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Heading from "../../components/Heading";
 import { getReview, getSlugs } from "@/lib/reviews";
 import ShareButtons from "@/app/components/ShareButtons";
@@ -22,16 +23,18 @@ const ReviewPage = async ({ params: { slug } }) => {
   return (
     <>
       <Heading>{title}</Heading>
+      <p className="font-semibold pb-3">{review.subtitle}</p>
       <div className="flex gap-3 items-baseline">
         <p className="italic pb-2">{date}</p>
         <ShareButtons />
       </div>
-      <img
+      <Image
         src={image}
         alt=""
         width="640"
         height="360"
         className="mb-2 rounded"
+        priority
       />
       <article
         dangerouslySetInnerHTML={{ __html: body }}
