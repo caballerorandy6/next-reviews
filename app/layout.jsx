@@ -1,5 +1,5 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "./globals.css";
 import { orbitron, exo2 } from "@/app/fonts";
 

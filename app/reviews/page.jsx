@@ -1,5 +1,5 @@
-import Heading from "../components/Heading";
-import ReviewsList from "../components/Reviews-list";
+import Heading from "../../components/Heading";
+import ReviewsList from "../../components/Reviews-list";
 
 export const metadata = {
   title: "Reviews",

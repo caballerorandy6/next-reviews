@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import Heading from "./components/Heading";
+import Heading from "../components/Heading";
 import { getReviews } from "@/lib/reviews";
+
+//Permite que las paginas sean dinamicas
+//export const dynamic = "force-dynamic";
+
+//Permite actualizar paginas estaticas, cada pagina se almacena el la cache y caduca despues del intervalo dado, en este caso en 30 sec.
+//export const revalidate = 30;
 
 const HomePage = async () => {
   const reviews = await getReviews(3);

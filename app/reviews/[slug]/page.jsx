@@ -1,8 +1,15 @@
 import Image from "next/image";
-import Heading from "../../components/Heading";
+import { notFound } from "next/navigation";
+import Heading from "../../../components/Heading";
 import { getReview, getSlugs } from "@/lib/reviews";
-import ShareButtons from "@/app/components/ShareButtons";
+import ShareButtons from "@/components/ShareButtons";
 
+//export const dynamic = "force-dynamic"; //Permite que las paginas sean dinamicas
+
+//Permite actualizar paginas estaticas, cada pagina se almacena el la cache y caduca despues del intervalo dado, en este caso en 30 sec.
+//export const revalidate = 30;
+
+//Crea una pagina estatica para cada slug.
 export async function generateStaticParams() {
   const slugs = await getSlugs();
   return slugs?.map((slug) => ({ slug }));
@@ -10,6 +17,9 @@ export async function generateStaticParams() {
 
 export const generateMetadata = async ({ params: { slug } }) => {
   const review = await getReview(slug);
+  if (!review) {
+    notFound();
+  }
   return {
     title: review.title,
   };
@@ -17,8 +27,11 @@ export const generateMetadata = async ({ params: { slug } }) => {
 
 const ReviewPage = async ({ params: { slug } }) => {
   const review = await getReview(slug);
+  if (!review) {
+    notFound();
+  }
   const { title, date, image, body } = review;
-  //console.log(review);
+  //console.log("[ReviewPage] rendering:", slug);
 
   return (
     <>
